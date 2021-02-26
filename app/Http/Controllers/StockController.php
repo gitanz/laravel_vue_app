@@ -27,16 +27,10 @@ class StockController extends Controller
     }
 
     public function searchSymbol(Request $request){
-
         $symbol = $request->input('stock-symbol');
         $data = (array) $this->callSearchAPI($symbol);;
         $bestMatches = isset($data["bestMatches"])?$data["bestMatches"]:[];
-        $searchOutput = [];
-        foreach($bestMatches as $bestMatch){
-            $bestMatch = (array)$bestMatch;
-            $searchOutput[] = ['symbol'=>$bestMatch['1. symbol'], 'name' => $bestMatch['2. name']];
-        }
-        return $searchOutput;
+        return array_map(array($this,'formatSearchInformation'), $bestMatches);
     }
 
     public function getStockQuote(Request $request){

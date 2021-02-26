@@ -35,7 +35,7 @@ trait CallAPI
         return json_decode($data);
     }
 
-    protected function formatInformation($response){
+    protected function formatQuoteInformation($response){
         $response = (array)$response;
         return [
             "symbol"  => $response["01. symbol"]?: null,
@@ -48,6 +48,21 @@ trait CallAPI
             "previous_close" => $response["08. previous close"]?: null,
             "change" => $response["09. change"]?: null,
             "change_percent"  => $response["10. change percent"]?: null,
+        ];
+    }
+
+    protected function formatSearchInformation($response){
+        $response = (array)$response;
+        return [
+            "symbol"  => $response["1. symbol"]?: null,
+            "name"  => $response["2. name"]?: null,
+            "type"  => $response["3. type"]?: null,
+            "region" => $response["4. region"]?: null,
+            "marketOpen" => $response["5. marketOpen"]?: null,
+            "marketClose" => $response["6. marketClose"]?: null,
+            "timezone" => $response["7. timezone"]?: null,
+            "currency" => $response["8. currency"]?: null,
+            "matchScore" => $response["9. matchScore"]?: null,
         ];
     }
 
@@ -72,7 +87,7 @@ trait CallAPI
         }
         else{
             $information = $this->getGlobalQuote($response);
-            $stockInformation = $this->formatInformation($information);
+            $stockInformation = $this->formatQuoteInformation($information);
             $message = 'Succesfully fetched stock information';
         }
         return [$stockInformation, $message];
