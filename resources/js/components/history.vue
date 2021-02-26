@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="container mt-5">
+            <h4>Retrieved Records</h4>
             <div id="records">
 
                 <table class="table table-bordered">

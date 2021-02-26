@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="557280e5-0e84-4ed6-be57-b6795e420118" name="Default Changelist" comment="" />
+    <list default="true" id="557280e5-0e84-4ed6-be57-b6795e420118" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/history.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/history.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/search.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +25,9 @@
         <option value="Vue Single File Component" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration">
@@ -133,6 +141,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1ovnO3L4KNO3lyLJ79vHVTA4vMc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -179,6 +188,7 @@
       <workItem from="1614192426498" duration="42504000" />
       <workItem from="1614251834497" duration="689000" />
       <workItem from="1614256408824" duration="18410000" />
+      <workItem from="1614336867353" duration="1756000" />
     </task>
     <servers />
   </component>

@@ -1,12 +1,14 @@
 <template>
     <div>
         <div class="container mt-5" >
-
+            <div class="alert alert-warning" v-bind:class="{ show: attemptsExceed }" v-if="attemptsExceed === true">
+                Are you going a bit faster? Only 5 api calls per minute is accepted !
+            </div>
             <form id="stock" action="#">
                 <div class="form-group">
                     <label>Stock Symbol</label>
-                    <div class="input-group mb-3">
-                        <input type="text" id="stock-symbol" v-on:keyup="getSuggestions" v-model="symbol" class="form-control" placeholder="Enter Stock Symbol">
+                    <div class="input-group">
+                        <input type="text" id="stock-symbol" autocomplete="off" v-on:keyup="getSuggestions" v-model="symbol" class="form-control" placeholder="Enter Stock Symbol">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button" @click="getStockInformation">Get Price</button>
                         </div>
@@ -21,7 +23,7 @@
                     </div>
 
 
-                    <div id="result">
+                    <div id="result mt-3" style="margin-top: 20px;">
                         <table class="table table-bordered">
                             <thead>
                             <tr>
@@ -70,7 +72,8 @@ export default {
         return {
             symbol: "",
             suggestions: [],
-            information: false
+            information: false,
+            attemptsExceed: false
         }
     },
     methods: {
@@ -94,7 +97,13 @@ export default {
             axios.post('/api/stock-quote', {
                 'stock-symbol': $this.symbol
             }).then(function (response) {
-                $this.information = response.data.data
+                if(response.data.success){
+                    $this.attemptsExceed = false;
+                    $this.information = response.data.data
+                }else{
+                    $this.attemptsExceed = true;
+                }
+
             }).catch(function (error) {
                 console.log(error);
             });
@@ -104,5 +113,16 @@ export default {
 </script>
 
 <style scoped>
+
+    #result{
+        margin-top: 20px;
+    }
+
+    #suggestions li{
+        cursor:default;
+    }
+    #suggestions li:hover{
+        background:#eeeeee;
+    }
 
 </style>
