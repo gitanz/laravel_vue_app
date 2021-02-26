@@ -21,7 +21,7 @@ class StockController extends Controller
                 "success" => true,
                 "offset" => $offset,
                 "limit" => $limit,
-                "data" =>DB::table('stocks')->get(),
+                "data" =>DB::table('stocks')->orderBy('created_at', 'desc')->get(),
                 "count" => DB::table('stocks')->count()
             ];
     }
